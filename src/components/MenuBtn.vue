@@ -3,21 +3,18 @@
 </template>
 
 <script>
-import { computed } from "vue";
-import { useStore } from "vuex";
 export default {
-  setup() {
-    const store = useStore();
+  name: "MenuBtn",
+};
+</script>
 
-    const bIsOpen = computed(() => {
-      return store.getters.getIsOpen;
-    });
+<script setup>
+import { useStore } from "vuex";
 
-    const handClickMenu = () => {
-      store.dispatch("handSetOpenState");
-    };
-    return { handClickMenu, bIsOpen };
-  },
+const store = useStore();
+
+const handClickMenu = () => {
+  store.dispatch("handSetOpenState");
 };
 </script>
 

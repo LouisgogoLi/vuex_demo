@@ -9,32 +9,30 @@
 </template>
 
 <script>
+export default {
+  name: "App",
+};
+</script>
+
+<script setup>
 import MenuBtn from "@/components/MenuBtn.vue";
 
 import { computed, onMounted } from "vue";
 import { useStore } from "vuex";
-export default {
-  components: {
-    MenuBtn,
-  },
-  setup() {
-    const store = useStore();
 
-    const bIsOpen = computed(() => {
-      return store.getters.getIsOpen;
-    });
+const store = useStore();
 
-    const sToken = computed(() => {
-      return store.getters["Auth/getToken"];
-    });
+const bIsOpen = computed(() => {
+  return store.getters.getIsOpen;
+});
 
-    onMounted(() => {
-      store.dispatch("Auth/handSetToken", "aaaaaaa");
-    });
+const sToken = computed(() => {
+  return store.getters["Auth/getToken"];
+});
 
-    return { sToken, bIsOpen };
-  },
-};
+onMounted(() => {
+  store.dispatch("Auth/handSetToken", "aaaaaaa");
+});
 </script>
 
 <style lang="scss"></style>
