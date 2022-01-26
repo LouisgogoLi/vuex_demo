@@ -4,6 +4,7 @@ import router from "./router";
 import store from "./store";
 import i18n from "./i18n";
 import "@/assets/css/reset.css";
+import "element-plus/theme-chalk/display.css";
 import "@/assets/css/element.css";
 import "animate.css";
 
