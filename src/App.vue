@@ -1,11 +1,8 @@
 <template>
-  <div id="app">
-    <MenuBtn />
-    <div class="content" v-if="bIsOpen">
-      <img id="img" alt="Vue logo" src="@/assets/images/logo.png" />
-    </div>
-    <h1>{{ sToken }}</h1>
-  </div>
+  <nav>
+    <router-link :to="{ name: 'TestView' }">TestView</router-link>
+  </nav>
+  <router-view />
 </template>
 
 <script>
@@ -14,25 +11,25 @@ export default {
 };
 </script>
 
-<script setup>
-import MenuBtn from "@/components/MenuBtn.vue";
+<style lang="scss">
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
 
-import { computed, onMounted } from "vue";
-import { useStore } from "vuex";
+nav {
+  padding: 30px;
 
-const store = useStore();
+  a {
+    font-weight: bold;
+    color: #2c3e50;
 
-const bIsOpen = computed(() => {
-  return store.getters.getIsOpen;
-});
-
-const sToken = computed(() => {
-  return store.getters["Auth/getToken"];
-});
-
-onMounted(() => {
-  store.dispatch("Auth/handSetToken", "aaaaaaa");
-});
-</script>
-
-<style lang="scss"></style>
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
+}
+</style>
