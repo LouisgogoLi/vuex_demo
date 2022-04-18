@@ -1,6 +1,9 @@
 <template>
   <nav>
-    <router-link :to="{ name: 'TestView' }">TestView</router-link>
+    <router-link :to="{ name: 'TestView' }">TestView</router-link> |
+    <router-link :to="{ name: 'goldsummary' }"
+      >黃金存摺帳戶內容查詢</router-link
+    >
   </nav>
   <router-view />
 </template>

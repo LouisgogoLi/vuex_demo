@@ -1,11 +1,31 @@
 import { createRouter, createWebHistory } from "vue-router";
-import TestView from "@/views/TestView.vue";
 
 const routes = [
   {
     path: "/",
     name: "TestView",
-    component: TestView,
+    component: () => import("@/views/TestView.vue"),
+  },
+  {
+    path: "/golden/go002",
+    component: () =>
+      import(
+        "@/views/golden/goldSummaryTransDetails/GoldSummaryTransDetailsParent.vue"
+      ),
+    children: [
+      {
+        path: "010",
+        name: "goldsummary",
+        component: () =>
+          import("@/views/golden/goldSummaryTransDetails/GoldSummary.vue"),
+      },
+      {
+        path: "020",
+        name: "goldtransDetails",
+        component: () =>
+          import("@/views/golden/goldSummaryTransDetails/GoldTransDetails.vue"),
+      },
+    ],
   },
 ];
 
