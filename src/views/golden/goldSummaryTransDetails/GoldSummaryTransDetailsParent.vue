@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import storeIndex from "@/store/index";
+import storeIndex from "@/store/index.js";
 import goldSummaryTransDetails from "@/store/golden/goldSummaryTransDetails";
 storeIndex.registerModule(
   ["golden", "goldSummaryTransDetails"],
