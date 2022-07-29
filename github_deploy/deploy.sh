@@ -1,5 +1,6 @@
 #sh deploy.sh執行
 
+cd ..
 set -e
 
 # https://en.wikipedia.org/wiki/ANSI_escape_code
@@ -139,7 +140,9 @@ echo ${osStatus} " ＊如要停止動作請按下 CRTL + C or Control + C"
 echo ${osStatus} "==============================================================${norm}"
 
 sleep 5s
-npm run build
+cd github_deploy
+powershell -ExecutionPolicy Bypass ".\vue_deploy.ps1"
+cd ..
 
 echo
 echo ${osStatus} "${lgreen}=============================================================="
